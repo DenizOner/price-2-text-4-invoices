@@ -2,6 +2,22 @@
 
 A modern web application designed to convert price information into text and generate invoices.
 
+---
+
+## 🤝 Support the Project
+
+MiPower is developed with the vision of contributing value to the open-source community. Your support is vital to maintain this project's continuity and development speed.
+
+If you appreciate my work, you can support me through GitHub Sponsorships or the platforms below. Thank you in advance!
+
+* [**GitHub Sponsors**](https://github.com/sponsors/DenizOner)
+* [**Patreon**](https://patreon.com/rDenizOner)
+* [**Buy Me a Coffee**](https://www.buymeacoffee.com/DenizOner)
+
+Alternatively, you can click the **Sponsor button (❤️)** in the top right corner of the repository to see all funding options.
+
+---
+
 ## 📌 Features
 
 - **Price to Text Conversion**: Converts numerical price information to text in Turkish and English
