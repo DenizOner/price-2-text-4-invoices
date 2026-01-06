@@ -1,6 +1,6 @@
 # price 2 text 4 invoices
 
-A modern web application designed to convert price information into text and generate invoices.
+A modern web application designed to convert price information into text.
 
 ---
 
@@ -120,3 +120,4 @@ window.transactionCenters = [
 ---
 
 Made with ❤️ for invoicing needs
+
