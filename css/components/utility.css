@@ -1,0 +1,31 @@
+/**
+ * Utility Class'ları
+ * 
+ * Bu dosya yardımcı sınıfları içerir.
+ * 
+ * @component Utility Classes
+ * @author SOLID Refactoring
+ * @version 1.0.0
+ */
+
+/* Sağ üst köşe flex konumlandırma */
+.top-right-flex {
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+/* Flex öğeleri */
+.flex-item-1 {
+    flex: 1;
+}
+
+.flex-item-2 {
+    flex: 2;
+}
+
+/* Yüksek z-index */
+.high-z-index {
+    z-index: 9999;
+}

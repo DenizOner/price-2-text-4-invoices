@@ -1,0 +1,40 @@
+/**
+ * Mobil Optimizasyon
+ * 
+ * Bu dosya mobil cihazlar için medya sorgularını içerir.
+ * 
+ * @component Mobile Responsive
+ * @author SOLID Refactoring
+ * @version 1.0.0
+ */
+
+/* ==================== MOBİL QUERIES ==================== */
+
+@media (max-width: 768px) {
+
+    /* Tema butonu mobil */
+    #themeToggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    /* Dropdown mobil */
+    .dropdown-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    /* Çıktı alanı mobil */
+    pre#result {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    /* Butonlar mobil */
+    .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}

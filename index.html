@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="html.title"></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/layout.css" rel="stylesheet">
+  <link href="css/components/form.css" rel="stylesheet">
+  <link href="css/components/currency-select.css" rel="stylesheet">
+  <link href="css/components/cards-buttons.css" rel="stylesheet">
+  <link href="css/components/output.css" rel="stylesheet">
+  <link href="css/components/scrollbar.css" rel="stylesheet">
+  <link href="css/components/links.css" rel="stylesheet">
+  <link href="css/components/dropdown.css" rel="stylesheet">
+  <link href="css/components/mobile.css" rel="stylesheet">
+  <link href="css/components/tooltip.css" rel="stylesheet">
+  <link href="css/components/utility.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <link href="css/animations.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="position-absolute top-right-flex">
+    <div class="dropdown language-dropdown" data-bs-toggle="tooltip" data-i18n-tooltip="html.languageDropdownTooltip">
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="languageDropdown"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-translate me-1"></i> <span id="currentLang">TR</span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+        <li><a class="dropdown-item" href="#" data-lang="tr">Türkçe</a></li>
+        <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+      </ul>
+    </div>
+    <button id="themeToggle" class="btn btn-outline-secondary btn-sm" data-bs-toggle="tooltip"
+      data-i18n-tooltip="html.themeToggleTooltip" aria-label="Tema değiştir">🌙</button>
+    <a id="adminPanelLink" href="#" target="_blank" class="btn btn-warning" data-bs-toggle="tooltip"
+      data-i18n-tooltip="html.adminTooltip">
+      <i class="bi bi-gear me-1"></i> <span data-i18n="admin.buttonText"></span>
+    </a>
+  </div>
+  <div class="container-centered">
+    <div class="card shadow p-4">
+      <h4 class="mb-3" data-i18n="app.title"></h4>
+
+      <div class="mb-3">
+        <label for="price" class="form-label" data-i18n="html.priceLabel"></label>
+        <div class="row">
+          <div class="col">
+            <input type="text" id="price" class="form-control price-input" inputmode="decimal" placeholder=""
+              data-i18n="html.pricePlaceholder" data-bs-toggle="tooltip" data-i18n-tooltip="html.priceTooltip"
+              pattern="\d+(?:[.,]\d{1,2})?" required>
+          </div>
+          <div class="col-auto">
+            <select id="currency" class="form-select" data-bs-toggle="tooltip" data-i18n-tooltip="html.currencyTooltip"
+              required>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" data-i18n="html.paymentMethodLabel"></label>
+        <div class="row g-2">
+          <div class="col-6">
+            <div class="form-check">
+              <input checked class="form-check-input" type="radio" name="payment" id="payOdenmemis" value="odenmemis"
+                required>
+              <label class="form-check-label" for="payOdenmemis">
+                <i class="bi bi-hourglass-split me-1"></i> <span data-i18n="form.paymentMethods.odenmemis"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="payNakit" value="nakit">
+              <label class="form-check-label" for="payNakit">
+                <i class="bi bi-cash-coin me-1"></i> <span data-i18n="form.paymentMethods.nakit"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="payEft" value="eft">
+              <label class="form-check-label" for="payEft">
+                <i class="bi bi-bank me-1"></i> <span data-i18n="form.paymentMethods.eft"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="payPos" value="pos">
+              <label class="form-check-label" for="payPos">
+                <i class="bi bi-credit-card me-1"></i> <span data-i18n="form.paymentMethods.pos"></span>
+              </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="paySanalPos" value="sanalpos">
+              <label class="form-check-label" for="paySanalPos">
+                <i class="bi bi-globe2 me-1"></i> <span data-i18n="form.paymentMethods.sanalpos"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3 collapse" id="islemMerkeziGroup">
+        <label for="islemMerkezi" class="form-label" data-i18n="html.islemMerkeziLabel"></label>
+        <input type="text" id="islemMerkezi" class="form-control" placeholder=""
+          data-i18n="html.islemMerkeziPlaceholder" list="merkezList">
+        <datalist id="merkezList">
+        </datalist>
+      </div>
+
+      <div class="mb-3 collapse" id="kartSahibiGroup">
+        <label for="kartSahibi" class="form-label" data-i18n="html.kartSahibiLabel"></label>
+        <input type="text" id="kartSahibi" class="form-control" placeholder="" data-i18n="html.kartSahibiPlaceholder">
+      </div>
+
+      <div class="mb-3 collapse" id="gonderenGroup">
+        <label for="gonderen" class="form-label" data-i18n="html.gonderenLabel"></label>
+        <input type="text" id="gonderen" class="form-control" placeholder="" data-i18n="html.gonderenPlaceholder"
+          list="gonderenList">
+        <datalist id="gonderenList">
+        </datalist>
+      </div>
+
+      <div class="mb-3 collapse" id="alanGroup">
+        <label for="alan" class="form-label" data-i18n="html.alanLabel"></label>
+        <input type="text" id="alan" class="form-control" placeholder="" data-i18n="html.alanPlaceholder"
+          list="alanList">
+        <datalist id="alanList">
+        </datalist>
+      </div>
+
+      <pre id="result" class="border p-3"></pre>
+
+      <div class="d-flex gap-2 mt-2">
+        <button type="button" id="clearBtn" class="btn btn-danger flex-grow-1 flex-item-1" data-bs-toggle="tooltip"
+          data-i18n-tooltip="html.clearTooltip"><i class="bi bi-trash me-1"></i><span
+            data-i18n="html.clearButton"></span></button>
+        <button type="button" id="copyBtn" accesskey="c" class="btn btn-success flex-grow-2 flex-item-2"
+          data-bs-toggle="tooltip" data-i18n-tooltip="html.copyTooltip">
+          <i class="bi bi-clipboard me-1"></i><span data-i18n="html.copyButton"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3 high-z-index">
+    <div id="toastBox" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div id="toastMessage" class="toast-body" data-i18n="html.toastPlaceholder"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          data-i18n-aria-label="html.closeButton"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 Bundle (Popper + JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Settings - Varsayılan yapılandırma değerleri (diğer tüm scriptlerden önce yüklenmeli) -->
+  <script src="settings.js"></script>
+
+  <!-- Core & Configuration -->
+  <script src="js/core/constants.js"></script>
+  <script src="translations/tr.js"></script>
+  <script src="translations/en.js"></script>
+  <script src="js/config/config.js"></script>
+
+  <!-- Data Files -->
+  <script src="data/senderAccounts.js"></script>
+  <script src="data/receiverAccounts.js"></script>
+  <script src="data/transactionCenters.js"></script>
+  <script src="data/currencyUnits.js"></script>
+
+  <!-- Utilities -->
+  <script src="js/utils/di.js"></script>
+  <script src="js/utils/utils.js"></script>
+  <script src="js/utils/validation.js"></script>
+
+  <!-- Core -->
+  <script src="js/core/core.js"></script>
+
+  <!-- Modules -->
+  <script src="js/modules/datalistLoader.js"></script>
+  <script src="js/modules/priceInput.js"></script>
+  <script src="js/modules/paymentVisibility.js"></script>
+  <script src="js/modules/extraFields.js"></script>
+  <script src="js/modules/i18nLoader.js"></script>
+  <script src="js/modules/output.js"></script>
+  <script src="js/modules/copy.js"></script>
+  <script src="js/modules/clear.js"></script>
+  <script src="js/modules/errorHint.js"></script>
+  <script src="js/modules/theme.js"></script>
+  <script src="js/modules/tooltipInit.js"></script>
+  <script src="js/modules/tooltipAutoHide.js"></script>
+  <script src="js/modules/languageSwitcher.js"></script>
+  <script src="js/modules/pluginSystem.js"></script>
+  <!-- Admin Panel URL dinamik güncelleme -->
+  <script>
+    (function () {
+      const adminLink = document.getElementById('adminPanelLink');
+      if (adminLink && window.Settings?.adminPanelUrl) {
+        adminLink.href = window.Settings.adminPanelUrl;
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+/**
+ * Para Birimi Select Alanı
+ * 
+ * Bu dosya para birimi seçim alanı stillerini içerir.
+ * 
+ * @component Currency Select
+ * @author SOLID Refactoring
+ * @version 1.0.0
+ */
+
+/* ==================== LİGHT MODE STİLLERİ ==================== */
+
+/* Para birimi select alanı - aydınlık tema (varsayılan Bootstrap) */
+#currency {
+    transition: all 0.4s ease !important;
+    will-change: background-color, color, border-color;
+    transform: translateZ(0);
+}
+
+/* ==================== DARK MODE STİLLERİ ==================== */
+
+body.dark-mode #currency {
+    background-color: var(--bg-element, #3a3a3a);
+    color: #f8f9fa;
+    border-color: #555;
+}
+
+body.dark-mode #currency option {
+    background-color: var(--bg-element, #3a3a3a);
+    color: #f8f9fa;
+}

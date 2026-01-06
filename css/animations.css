@@ -1,0 +1,342 @@
+/* ========== TEMA BUTONU İKON PARLAMASI ========== */
+
+#themeToggle.glow-moon {
+    animation: moonGlow 0.8s ease forwards;
+}
+
+#themeToggle.glow-sun {
+    animation: sunGlow 0.8s ease forwards;
+}
+
+@keyframes moonGlow {
+    0% {
+        text-shadow: 0 0 0px #9dd1ff;
+    }
+
+    50% {
+        text-shadow: 0 0 15px #9dd1ff, 0 0 25px #9dd1ff;
+    }
+
+    100% {
+        text-shadow: 0 0 0px transparent;
+    }
+}
+
+@keyframes sunGlow {
+    0% {
+        text-shadow: 0 0 0px #ffd27f;
+    }
+
+    50% {
+        text-shadow: 0 0 18px #ffd27f, 0 0 30px #ffae42;
+    }
+
+    100% {
+        text-shadow: 0 0 0px transparent;
+    }
+}
+
+/* ========== GÖRSEL GEÇİŞLER ========== */
+
+/* Arka plan kararma efekti */
+body.overlay-dark::before,
+body.overlay-dark::after {
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: darken;
+}
+
+/* Tema geçişi sırasında hafif zoom efekti */
+body.transition-zoom::before,
+body.transition-zoom::after {
+    animation: bgZoom 0.6s ease;
+}
+
+@keyframes bgZoom {
+    0% {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scale(1.01);
+        opacity: 0.95;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ========== FORM BUTONLARI HOVER/FOCUS ========== */
+
+button {
+    color: var(--btn-text);
+    background: var(--btn-bg);
+    transform: translateZ(0);
+}
+
+button:hover {
+    background: var(--btn-bg-hover);
+    color: var(--btn-text-hover);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+button:focus,
+input[type="submit"]:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+body.dark-mode button:focus,
+body.dark-mode input[type="submit"]:focus {
+    outline: 2px solid #66b2ff;
+    box-shadow: 0 0 0 3px rgba(102, 178, 255, 0.25);
+}
+
+/* ========== BUTON ANIMASYONLARI ========== */
+
+/* Başarı butonu için onay işareti animasyonu */
+@keyframes checkmark {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.btn-success.show-check {
+    animation: checkmark 0.6s ease;
+}
+
+/* Hata butonu için sallanma animasyonu */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-2px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(2px);
+    }
+}
+
+.btn-danger.shake {
+    animation: shake 0.5s ease;
+}
+
+/* ========== ÇIKTI ALANI ANIMASYONLARI ========== */
+
+/* Yeni çıktı oluştuğunda fade-in */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+pre#result.new-output {
+    animation: fadeInUp 0.4s ease;
+}
+
+/* ========== TOAST ANIMASYONLARI ========== */
+
+.toast {
+    animation: toastSlideIn 0.3s ease;
+}
+
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast.fade-out {
+    animation: toastFadeOut 0.3s ease forwards;
+}
+
+@keyframes toastFadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* ========== INPUT VALIDASYON ANIMASYONLARI ========== */
+
+.form-control.is-valid,
+.form-control.is-invalid {
+    animation: validatePulse 0.3s ease;
+}
+
+@keyframes validatePulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========== KART GÖLGE ANIMASYONLARI ========== */
+
+.card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    /* transform kaldırıldı - kayma sorununu engellemek için */
+}
+
+body.dark-mode .card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ========== ÖDEME YÖNEMİ SEÇİM ANIMASYONU ========== */
+
+.form-check-input:checked+.form-check-label {
+    animation: paymentSelect 0.3s ease;
+}
+
+@keyframes paymentSelect {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========== LOADING/İŞLEM DURUMU ========== */
+
+/* Opsiyonel loading efekti */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+    margin-left: 8px;
+}
+
+/* ========== KOPYALAMA BAŞARI ANIMASYONU ========== */
+
+@keyframes copySuccess {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+.btn-success.copied {
+    animation: copySuccess 0.6s ease;
+}
+
+/* ========== FOCUS GÖRÜNÜRLÜK İYİLEŞTİRMELERİ ========== */
+
+/* Klavye ile odaklanıldığında daha belirgin odak durumu */
+button:focus-visible,
+.form-control:focus-visible,
+.form-check-input:focus-visible {
+    outline: 3px solid #0d6efd;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.3);
+}
+
+body.dark-mode button:focus-visible,
+body.dark-mode .form-control:focus-visible,
+body.dark-mode .form-check-input:focus-visible {
+    outline-color: #66b2ff;
+    box-shadow: 0 0 0 4px rgba(102, 178, 255, 0.3);
+}
+
+/* ========== TRANSITION OPTİMİZASYONLARI ========== */
+
+/* Performans için optimize edilmiş transition */
+.optimized-transition {
+    transition: all 0.2s ease;
+    will-change: transform, opacity, background-color;
+}
+
+/* Hardware acceleration için */
+.hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

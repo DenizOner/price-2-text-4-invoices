@@ -1,0 +1,138 @@
+/* ========== TEMA, ARKA PLAN VE GEÇİŞLER ========== */
+
+/* Temel gövde */
+body {
+    position: relative;
+    color: #212529;
+}
+
+/* Arka plan görselleri için cross-fade katmanları */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* Day (gündüz) görseli — gradient */
+body::before {
+    background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+    opacity: 1;
+}
+
+/* Night (gece) görseli — gradient */
+body::after {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    opacity: 0;
+}
+
+/* Dark mode temel renkleri ve görsel geçişi */
+body.dark-mode {
+    color: #f8f9fa;
+    --bg-container: #2c2c2c;
+    --bg-element: #3a3a3a;
+}
+
+body.dark-mode::before {
+    opacity: 0;
+}
+
+body.dark-mode::after {
+    opacity: 1;
+}
+
+/* Yumuşak tema geçişi animasyonu */
+body.theme-transition {
+    animation: themeFade 0.4s ease-in-out;
+}
+
+@keyframes themeFade {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(0.9);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* Tüm ana elemanlarda optimize edilmiş geçiş yönetimi */
+body,
+body::before,
+body::after,
+.card,
+.form-control,
+pre#result,
+label,
+button,
+input,
+.form-check-label,
+.form-check-input,
+#themeToggle {
+    transition: all 0.4s ease;
+    will-change: background-color, color, border-color, opacity, box-shadow;
+    transform: translateZ(0);
+    /* Hardware acceleration */
+}
+
+/* Optimize edilmiş form elementleri */
+.form-control,
+.form-check-input {
+    will-change: background-color, color, border-color;
+    transform: translateZ(0);
+}
+
+/* Placeholder animasyonları */
+input::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder,
+input:not(:placeholder-shown)::placeholder {
+    opacity: 1;
+}
+
+/* Dark mode placeholder'ları */
+body.dark-mode input::placeholder {
+    color: #ccc;
+    opacity: 1;
+}
+
+/* Tema butonu - KARE ŞEKİL */
+#themeToggle {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    border-color: #ccc;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+    background-color: #fff;
+}
+
+body.dark-mode #themeToggle {
+    background-color: rgba(60, 60, 60, 0.85);
+    color: #f1f1f1;
+    border-color: #777;
+}
+
+body.dark-mode #themeToggle:hover {
+    background-color: #3a3a3a;
+}

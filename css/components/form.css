@@ -1,0 +1,110 @@
+/**
+ * Form ve Label Stilleri
+ * 
+ * Bu dosya form elemanları, label'lar, validasyon stilleri ve placeholder'ları içerir.
+ * 
+ * @component Form Elements
+ * @author SOLID Refactoring
+ * @version 1.0.0
+ */
+
+/* ==================== LİGHT MODE STİLLERİ ==================== */
+
+/* Form kontrolü (light) Bootstrap ile uyumlu */
+.form-control {
+    color: inherit;
+}
+
+/* Fiyat input sağa yaslama */
+.price-input {
+    text-align: right;
+}
+
+/* Label geçiş animasyonu */
+label,
+.form-label {
+    transition: all 0.4s ease !important;
+    will-change: color;
+    transform: translateZ(0);
+}
+
+/* Radio button'lar */
+.form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Placeholder'lar */
+input::placeholder,
+textarea::placeholder {
+    transition: color 0.4s ease !important;
+}
+
+/* Form validasyon renkleri - border ve ikon ile */
+.is-valid {
+    border-color: #28a745 !important;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+/* Opsiyonel alanlar için input içinde onay ikonu */
+.form-control.is-valid {
+    position: relative;
+}
+
+.form-control.is-valid::after {
+    content: "\2713";
+    /* Check mark */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #28a745;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* ==================== DARK MODE STİLLERİ ==================== */
+
+body.dark-mode .form-control {
+    background-color: var(--bg-element, #3a3a3a);
+    color: #f8f9fa;
+    border-color: #555;
+}
+
+body.dark-mode label,
+body.dark-mode .form-label {
+    color: #f8f9fa;
+    transition: color 0.4s ease !important;
+}
+
+body.dark-mode .form-check-input {
+    background-color: var(--bg-element, #3a3a3a);
+    border-color: #555;
+}
+
+body.dark-mode .form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #ccc;
+    opacity: 1;
+}
+
+body.dark-mode .is-valid {
+    border-color: #28a745 !important;
+}
+
+body.dark-mode .is-invalid {
+    border-color: #dc3545 !important;
+}
+
+body.dark-mode datalist option {
+    background-color: var(--bg-element, #3a3a3a);
+    color: #f8f9fa;
+}

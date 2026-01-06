@@ -1,0 +1,35 @@
+/**
+ * Link ve Hover Renkleri
+ * 
+ * Bu dosya link stilleri ve hover efektlerini içerir.
+ * 
+ * @component Links
+ * @author SOLID Refactoring
+ * @version 1.0.0
+ */
+
+/* ==================== LİGHT MODE STİLLERİ ==================== */
+
+a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #0b5ed7;
+    text-decoration: none;
+    /* Admin butonu için underline kaldırıldı */
+}
+
+/* ==================== DARK MODE STİLLERİ ==================== */
+
+body.dark-mode a {
+    color: #66b2ff;
+}
+
+body.dark-mode a:hover {
+    color: #99ccff;
+    text-decoration: none;
+    /* Dark mode için de underline kaldırıldı */
+}

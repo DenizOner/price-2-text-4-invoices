@@ -1,0 +1,137 @@
+/**
+ * Dil Seçimi Dropdown
+ * 
+ * Bu dosya dropdown menü stillerini içerir.
+ * 
+ * @component Dropdown
+ * @author SOLID Refactoring
+ * @version 1.0.1
+ */
+
+/* ==================== LİGHT MODE STİLLERİ ==================== */
+
+.dropdown-toggle {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #212529;
+    border-color: #ced4da;
+    transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+    background-color: #ffffff;
+    color: #212529;
+    border-color: #adb5bd;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+}
+
+.dropdown-item {
+    color: #212529;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+/* Aydınlık mod dropdown menü öğeleri */
+html body:not(.dark-mode) .dropdown .dropdown-menu .dropdown-item:hover,
+html body:not(.dark-mode) .dropdown .dropdown-menu .dropdown-item:focus {
+    background-color: #e9ecef !important;
+    color: #212529 !important;
+}
+
+/* ==================== DARK MODE STİLLERİ ==================== */
+
+body.dark-mode .dropdown-toggle {
+    background-color: rgba(60, 60, 60, 0.95);
+    color: #f1f1f1;
+    border-color: #495057;
+}
+
+body.dark-mode .dropdown-toggle:hover,
+body.dark-mode .dropdown-toggle:focus {
+    background-color: #3a3a3a;
+    color: #f1f1f1;
+    border-color: #6c757d;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #2c2c2c;
+    border-color: #495057;
+    color: #f8f9fa;
+}
+
+body.dark-mode .dropdown-item {
+    color: #f8f9fa;
+    background-color: transparent;
+}
+
+body.dark-mode .dropdown-item:hover,
+body.dark-mode .dropdown-item:focus {
+    background-color: #3a3a3a;
+    color: #f8f9fa;
+}
+
+body.dark-mode .dropdown-item.active,
+body.dark-mode .dropdown-item:active {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* ==================== LİGHT MODE DROPDOWN OK İKONİ ==================== */
+
+html body:not(.dark-mode) select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+html body:not(.dark-mode) select::-webkit-calendar-picker-indicator {
+    color: #212529 !important;
+    filter: none;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+html body:not(.dark-mode) select::-webkit-calendar-picker-indicator:hover {
+    color: #212529 !important;
+    opacity: 1;
+}
+
+/* ==================== DARK MODE DROPDOWN OK İKONİ ==================== */
+
+body.dark-mode select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+body.dark-mode select::-webkit-calendar-picker-indicator {
+    color: #f8f9fa !important;
+    filter: none;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+body.dark-mode select::-webkit-calendar-picker-indicator:hover {
+    color: #f8f9fa !important;
+    opacity: 1;
+}
